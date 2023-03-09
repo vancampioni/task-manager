@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Tasks from "./components/Tasks/Tasks";
+import { v4 as uuidv4 } from 'uuid';
 
-import "./App.css"
+import Tasks from "./components/Tasks/Tasks";
 import AddTask from "./components/AddTask/AddTask";
+import "./App.css"
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -21,7 +22,7 @@ const App = () => {
   const handleTaskAdition = (taskTitle) => {
     const newTasks = [...tasks, {
       title: taskTitle,
-      id: Math.random(10),
+      id: uuidv4(),
       completed: false,
     }];
 
